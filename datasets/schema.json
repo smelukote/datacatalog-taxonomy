@@ -1,0 +1,35 @@
+[
+  {
+    "description": "The Permalink",
+    "mode": "NULLABLE",
+    "name": "permalink",
+    "type": "STRING"
+  },
+  {
+    "description": "State where the head office is located",
+    "mode": "NULLABLE",
+    "name": "state",
+    "type": "STRING"
+  },
+  {
+    "description": "Account Number",
+    "mode": "NULLABLE",
+    "name": "Account",
+    "policyTags": {
+      "names": []
+    },
+    "type": "STRING"
+  },
+  {
+    "description": "Social Security Number",
+    "mode": "NULLABLE",
+    "name": "SSN",
+    "type": "STRING"
+  },
+  {
+    "description": "Phone Number",
+    "mode": "NULLABLE",
+    "name": "Phone",
+    "type": "INTEGER"
+  }
+]
