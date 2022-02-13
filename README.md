@@ -12,7 +12,7 @@ resource "google_bigquery_table" "demo_table" {
 #### Step 2. create a sample TF file demo_table.tf ####
 demo_table.tf
 resource "google_bigquery_table" "demo_table" {
-  # (resource arguments)
+(resource arguments)
 }
 ############# re-run the state import command
 #### Step 3.
