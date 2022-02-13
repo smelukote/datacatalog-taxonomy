@@ -4,7 +4,7 @@ resource "google_bigquery_dataset" "my_dataset" {
   friendly_name               = "test"
   description                 = "This is a test description"
   location                    = "US"
-  default_table_expiration_ms = 3600000
+  // default_table_expiration_ms = 3600000
   
 
   labels = {
@@ -32,6 +32,9 @@ resource "google_bigquery_table" "my_table" {
     "name": "permalink",
     "type": "STRING",
     "mode": "NULLABLE",
+    "policyTags": {
+      "names": []
+    },
     "description": "The Permalink"
   },
   {
