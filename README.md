@@ -2,7 +2,7 @@
 
 #### Step 1. Importing state file
 
-# 1. terraform import google_bigquery_table.demo_table involuted-woods-340900/my_dataset/my_table
+#### 1. terraform import google_bigquery_table.demo_table involuted-woods-340900/my_dataset/my_table
 
 Before importing this resource, please create its configuration in the root module. For example:
 
