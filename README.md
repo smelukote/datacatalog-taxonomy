@@ -1,6 +1,6 @@
-# datacatalog-taxonomy
+# datacatalog-taxonomy Policy - Implementations using Terraform on big query tables
 
-## 1. Importing state file
+### Step 1. Importing state file
 
 # 1. terraform import google_bigquery_table.demo_table involuted-woods-340900/my_dataset/my_table
 
@@ -9,13 +9,13 @@ Before importing this resource, please create its configuration in the root modu
 resource "google_bigquery_table" "demo_table" {
 }
 
-# 2. create a sample TF file demo_table.tf ####
+### Step 2. create a sample TF file demo_table.tf ####
 demo_table.tf
 resource "google_bigquery_table" "demo_table" {
   # (resource arguments)
 }
 ############# re-run the state import command
-## 3.
+### Step 3.
 terraform import google_bigquery_table.demo_table involuted-woods-340900/my_dataset/my_table
 google_bigquery_table.demo_table: Importing from ID "involuted-woods-340900/my_dataset/my_table"...
 google_bigquery_table.demo_table: Import prepared!
@@ -27,7 +27,7 @@ Import successful!
 The resources that were imported are shown above. These resources are now in
 your Terraform state and will henceforth be managed by Terraform.
 
-#### Verify the imported state
+### Step4. Verify the imported state
 $terraform state list
 data.google_iam_policy.finegrained
 google_bigquery_dataset.my_dataset
@@ -41,11 +41,11 @@ google_data_catalog_taxonomy.my_taxonomy
 
 ##########
 
-### Get the JSON format for a bq table ###
+### Step5. Get the JSON format for a bq table ###
 bq show --schema --format=prettyjson \
    involuted-woods-340900:my_dataset.demo_table > schema.json
 
-####
+### Step6.
 paste dataset json contents to demo_table.tf
 
 ## update demo_table.tf with project id, dataset id and table id
@@ -54,7 +54,7 @@ resource "google_bigquery_table" "demo_table" {
   project                     = "involuted-woods-340900"
   dataset_id                  = "my_dataset"
   table_id                    = "demo_table"
-##
+### Stpe7
 ## update demo_table.tf with imported JSON contents
    schema = <<EOF
 [
@@ -69,7 +69,7 @@ resource "google_bigquery_table" "demo_table" {
 "policyTags": {
      "names": ["projects/project-id/locations/location/taxonomies/taxonomy-id/policyTags/policytag-id"]
    }
-## execute terraform apply to implement new policy or remove an existing policy.
+### Step 8. execute terraform apply to implement new policy or remove an existing policy.
 terrform apply
 #################################################################################
 
