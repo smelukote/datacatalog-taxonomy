@@ -2,20 +2,20 @@
 
 ## 1. Importing state file
 
-terraform import google_bigquery_table.demo_table involuted-woods-340900/my_dataset/my_table
+# 1. terraform import google_bigquery_table.demo_table involuted-woods-340900/my_dataset/my_table
 
 Before importing this resource, please create its configuration in the root module. For example:
 
 resource "google_bigquery_table" "demo_table" {
-  # (resource arguments)
 }
 
-## create a sample TF file demo_table.tf ####
+# 2. create a sample TF file demo_table.tf ####
 demo_table.tf
 resource "google_bigquery_table" "demo_table" {
   # (resource arguments)
 }
-############# re-run the state import command ####
+############# re-run the state import command
+## 3.
 terraform import google_bigquery_table.demo_table involuted-woods-340900/my_dataset/my_table
 google_bigquery_table.demo_table: Importing from ID "involuted-woods-340900/my_dataset/my_table"...
 google_bigquery_table.demo_table: Import prepared!
@@ -28,7 +28,7 @@ The resources that were imported are shown above. These resources are now in
 your Terraform state and will henceforth be managed by Terraform.
 
 #### Verify the imported state
-% terraform state list
+$terraform state list
 data.google_iam_policy.finegrained
 google_bigquery_dataset.my_dataset
 google_bigquery_table.demo_table
@@ -73,6 +73,7 @@ resource "google_bigquery_table" "demo_table" {
 terrform apply
 #################################################################################
 
+# Other BQ commands #####
 
 ### Get the JSON format for a bq table ###
 bq show --schema --format=prettyjson \
