@@ -1,15 +1,15 @@
 # define GCP region
-variable "gcp_region" {
+variable "region" {
   type        = string
   description = "GCP region"
 }
 # define GCP zone
-variable "gcp_zone" {
+variable "zone" {
   type        = string
   description = "GCP zone"
 }
 # define GCP project name
-variable "gcp_project" {
+variable "project" {
   type        = string
   description = "GCP project name"
 }

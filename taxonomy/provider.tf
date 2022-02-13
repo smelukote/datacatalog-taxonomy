@@ -10,12 +10,12 @@ terraform {
 
 #Provider used to make taxonomys
 provider "google-beta" {
-  project = var.gcp_project
-  region  = var.gcp_region
-  zone    = var.gcp_zone
+  project = var.project
+  region  = var.region
+  zone    = var.zone
 }
 
 provider "google" {
-  project = var.gcp_project
-  region  = var.gcp_region
+  project = var.project
+  region  = var.region
 }
