@@ -24,6 +24,7 @@ variable "project" {
 variable "bucket-name" {
   type        = string
   description = "The name of the Google Storage Bucket to create"
+  default = "tf-backend-4321"
 }
 // variable "storage-class" {
 //   type        = string
