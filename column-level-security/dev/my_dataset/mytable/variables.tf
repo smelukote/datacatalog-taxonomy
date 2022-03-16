@@ -2,16 +2,19 @@
 variable "region" {
   type        = string
   description = "GCP region"
+  default = "us-central1"
 }
 # define GCP zone
 variable "zone" {
   type        = string
   description = "GCP zone"
+  default = "us-central1-a"
 }
 # define GCP project name
 variable "project" {
   type        = string
   description = "GCP project name"
+  default = "involuted-woods-340900"
 }
 # GCP authentication file
 // variable "gcp_auth_file" {
