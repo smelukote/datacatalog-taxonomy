@@ -6,7 +6,8 @@ steps:
   - '-c'
   - |
       echo "branch $BRANCH_NAME"
-      if [ ! -z "BRANCH_NAME" -a -d "/column-level-security/dev/qion_t/city" ]; then
+      if [ ! -z "BRANCH_NAME" -a -d "/column-level-security/dev/my
+      -dataset/mytable" ]; then
         cd column-level-security/dev/qion_t/city
         echo "run init"
         terraform init
@@ -16,7 +17,7 @@ steps:
         terraform plan -out terraform.plan
         terraform apply --auto-approve terraform.plan
       else
-      for dir in column-level-security/*/
+      for dir in column-level-security/dev/*/
       do
       cd ${dir}
       env=${dir%*/}
