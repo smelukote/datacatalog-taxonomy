@@ -1,0 +1,35 @@
+steps:
+- name: 'hashicorp/terraform:1.0.0'
+  id: 'tf plan'
+  entrypoint: 'sh'
+  args:
+  - '-c'
+  - |
+      echo "branch $BRANCH_NAME"
+      if [ ! -z "BRANCH_NAME" -a -d "/column-level-security/dev/qion_t/city" ]; then
+        cd column-level-security/dev/qion_t/city
+        echo "run init"
+        terraform init
+        echo "validate"
+        terraform validate
+        echo "run plan"
+        terraform plan -out terraform.plan
+        terraform apply --auto-approve terraform.plan
+      else
+      for dir in column-level-security/*/
+      do
+      cd ${dir}
+      env=${dir%*/}
+      env=${env#*/}
+      echo ""
+      echo "***************TERRAFORM PLAN *******************"
+      echo "*******At environment: ${env}****"
+      echo "*************************************************"
+      terraform init
+      terraform validate
+      terraform plan || exit 1
+      cd ../../
+      done
+      fi
+options:
+  logging: CLOUD_LOGGING_ONLY
