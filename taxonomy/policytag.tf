@@ -38,7 +38,8 @@ data "google_iam_policy" "finegrained" {
     role = "roles/datacatalog.categoryFineGrainedReader"
 
     members = [
-      "user:smgcp2023@gmail.com"
+      "user:smgcp2023@gmail.com",
+      "user:msap2024@gmail.com"
     ]
   }
 }
