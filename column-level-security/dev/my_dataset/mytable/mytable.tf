@@ -2,6 +2,7 @@ resource "google_bigquery_table" "mytable" {
   project                     = "involuted-woods-340900"
   dataset_id                  = "my_dataset"
   table_id                    = "mytable"
+
 schema = <<EOF
 [
   {
