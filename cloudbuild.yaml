@@ -16,8 +16,8 @@ steps:
         terraform plan -out terraform.plan
         terraform apply --auto-approve terraform.plan
       elseif [! -z "BRANCH_NAME" -a -d "column-level-security/dev/my_dataset/mytable_copy" ]; then
-      cd column-level-security/dev/my_dataset/mytable/mydataset_copy
-      echo "run init"
+        cd column-level-security/dev/my_dataset/mytable/mydataset_copy
+        echo "run init"
         terraform init
         echo "validate"
         terraform validate
@@ -25,7 +25,7 @@ steps:
         terraform plan -out terraform.plan
         terraform apply --auto-approve terraform.plan
       else
-      for dir in column-level-security/dev/my_dataset/mydataset_copy
+      for dir in column-level-security/dev/my_dataset/*/
       do
       env=${dir%*/}
       env=${env#*/}
