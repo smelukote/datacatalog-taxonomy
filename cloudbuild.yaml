@@ -6,7 +6,7 @@ steps:
   - '-c'
   - |
       echo "branch $BRANCH_NAME"
-      if [ ! -z "BRANCH_NAME" -a -d "column-level-security/dev/my_dataset/mytable/$BRANCH_NAME/" ]; then
+      if [ ! -z "BRANCH_NAME" -a -d "column-level-security/dev/my_dataset/mytable/" ]; then
         cd column-level-security/dev/my_dataset/mytable/
         echo "run init"
         terraform init
