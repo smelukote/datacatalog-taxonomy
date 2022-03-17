@@ -15,16 +15,6 @@ steps:
         echo "run plan"
         terraform plan -out terraform.plan
         terraform apply --auto-approve terraform.plan
-      elif [! -z "BRANCH_NAME" -a -d "column-level-security/dev/my_dataset/mytable_copy" ]; then
-        cd column-level-security/dev/my_dataset/mytable/mydataset_copy
-        echo "run init"
-        terraform init
-        echo "validate"
-        terraform validate
-        echo "run plan"
-        terraform plan -out terraform.plan
-        terraform apply --auto-approve terraform.plan
-      fi
       done
       
 options:
