@@ -3,6 +3,7 @@ resource "google_bigquery_table" "mytable" {
   dataset_id                  = "my_dataset"
   table_id                    = "mytable"
 
+
 schema = <<EOF
 [
   {
