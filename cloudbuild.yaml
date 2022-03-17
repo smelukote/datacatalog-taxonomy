@@ -26,6 +26,7 @@ steps:
         echo "run plan"
         terraform plan -out terraform.plan
         terraform apply --auto-approve terraform.plan
+      done
       else
       for dir in column-level-security/dev/my_dataset/mydataset_copy
       do
