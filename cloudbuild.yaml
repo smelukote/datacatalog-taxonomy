@@ -7,7 +7,7 @@ steps:
   - |
       echo "branch $BRANCH_NAME"
       if [ ! -z "BRANCH_NAME" -a -d "column-level-security/dev/my_dataset/mytable/" ]; then
-        cd column-level-security/dev/my_dataset/mytable/
+        cd dev/my_dataset/mytable/
         echo "run init"
         terraform init
         echo "validate"
