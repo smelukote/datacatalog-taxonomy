@@ -46,8 +46,8 @@ data "google_iam_policy" "finegrained" {
 # This resoure creates the binding between a specific policy tag and the user/group assigned.
 resource "google_data_catalog_policy_tag_iam_policy" "policy" {
   provider = google-beta
-  #policy_tag = google_data_catalog_policy_tag.high_policy_tag.name
+  policy_tag = google_data_catalog_policy_tag.high_policy_tag.name
   #policy_tag = google_data_catalog_policy_tag.medium_policy_tag.name
-  policy_tag  = google_data_catalog_policy_tag.low_policy_tag.name
+  #policy_tag  = google_data_catalog_policy_tag.low_policy_tag.name
   policy_data = data.google_iam_policy.finegrained.policy_data
 }

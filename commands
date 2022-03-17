@@ -1,0 +1,4 @@
+### terraform import google_bigquery_table.mytable_copy involuted-woods-340900/my_dataset/mytable_copy 
+### bq show --format=prettyjson project_id:dataset
+### bq show --format=prettyjson involuted-woods-340900:my_dataset
+bq show --format=prettyjson involuted-woods-340900:my_dataset.mytable_copy | jq '.schema.fields' 

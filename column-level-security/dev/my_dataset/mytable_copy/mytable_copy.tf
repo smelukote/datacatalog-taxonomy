@@ -1,7 +1,7 @@
-resource "google_bigquery_table" "mytable" {
+resource "google_bigquery_table" "mytable_copy" {
   project                     = "involuted-woods-340900"
   dataset_id                  = "my_dataset"
-  table_id                    = "mytable"
+  table_id                    = "mytable_copy"
 
 schema = <<EOF
 [
@@ -9,8 +9,7 @@ schema = <<EOF
     "mode": "NULLABLE",
     "name": "id",
     "policyTags": {
-     "names": ["projects/involuted-woods-340900/locations/us/taxonomies/687991776380433922/policyTags/2275894906795300867"]
-   },
+     "names": ["projects/involuted-woods-340900/locations/us/taxonomies/687991776380433922/policyTags/2275894906795300867"]},
     "type": "STRING"
   },
   {
@@ -65,7 +64,6 @@ schema = <<EOF
     "name": "addresses",
     "type": "RECORD"
   }
-
 ]
 EOF
 }
