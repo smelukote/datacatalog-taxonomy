@@ -19,7 +19,7 @@ steps:
         cd column-level-security/dev/my_dataset/mytable/$BRANCH_NAME
         terraform init
       else
-        for dir in column-level-security/dev/my_dataset/my_dataset/mytable_copy/*/
+        for dir in column-level-security/dev/my_dataset/my_dataset/*/
         do 
           cd ${dir}   
           env=${dir%*/}
