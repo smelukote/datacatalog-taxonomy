@@ -16,7 +16,7 @@ steps:
         terraform plan -out terraform.plan
         terraform apply --auto-approve terraform.plan
       else
-        for column-level-security/dev/my_dataset/*/
+        for dir in column-level-security/dev/my_dataset/*/
         do
           cd ${dir}
           env=${dir%*/}
