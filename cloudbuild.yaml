@@ -19,11 +19,11 @@ steps:
         cd column-level-security/dev/my_dataset/mytable/$BRANCH_NAME
         terraform init
       else
-        for dir in column-level-security/dev/my_dataset/*/
+        for dir in my_dataset/*/
         do 
           cd ${dir}   
           env=${dir%*/}
-          env=${column-level-security/env#*/}
+          env=${env#*/}
           echo ""
           echo "*************** TERRAFORM INIT ******************"
           echo "******* At environment: ${env} ********"
