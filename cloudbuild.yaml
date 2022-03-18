@@ -32,7 +32,7 @@ steps:
         done
         fi
       if [ ! -z "BRANCH_NAME" -a -d "column-level-security/dev/my_dataset/mytable_copy" ]; then
-        cd column-level-security/dev/my_dataset/mytable/mytable_copy
+        cd column-level-security/dev/my_dataset/mytable_copy
         echo "run init"
         terraform init
         echo "validate"
