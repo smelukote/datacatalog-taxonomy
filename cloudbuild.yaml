@@ -15,11 +15,11 @@ steps:
   args: 
   - '-c'
   - |
-      if [ -d "environments/$BRANCH_NAME/" ]; then
-        cd environments/$BRANCH_NAME
+      if [ -d "column-level-security/dev/my_dataset/mytable/$BRANCH_NAME/" ]; then
+        cd column-level-security/dev/my_dataset/mytable/$BRANCH_NAME
         terraform init
       else
-        for dir in environments/*/
+        for dir in column-level-security/dev/my_dataset/*/
         do 
           cd ${dir}   
           env=${dir%*/}
@@ -39,11 +39,11 @@ steps:
   args: 
   - '-c'
   - | 
-      if [ -d "environments/$BRANCH_NAME/" ]; then
-        cd environments/$BRANCH_NAME
+      if [ -d "column-level-security/dev/my_dataset/mytable/$BRANCH_NAME/" ]; then
+        cd column-level-security/dev/my_dataset/mytable/$BRANCH_NAME
         terraform plan
       else
-        for dir in environments/*/
+        for dir in column-level-security/dev/my_dataset/*/
         do 
           cd ${dir}   
           env=${dir%*/}
@@ -65,8 +65,8 @@ steps:
   args: 
   - '-c'
   - | 
-      if [ -d "environments/$BRANCH_NAME/" ]; then
-        cd environments/$BRANCH_NAME      
+      if [ -d "column-level-security/dev/my_dataset/mytable/$BRANCH_NAME/" ]; then
+        cd column-level-security/dev/my_dataset/mytable/$BRANCH_NAME      
         terraform apply -auto-approve
       else
         echo "***************************** SKIPPING APPLYING *******************************"
