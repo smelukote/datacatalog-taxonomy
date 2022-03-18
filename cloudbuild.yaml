@@ -30,9 +30,9 @@ steps:
           terraform plan || exit 1
           cd ../../
         done
-      fi
-      echo "branch $BRANCH_NAME"
-      if [ ! -z "BRANCH_NAME" -a -d "column-level-security/dev/my_dataset/mytable_copy" ]; then
+      
+    
+      elif [ ! -z "BRANCH_NAME" -a -d "column-level-security/dev/my_dataset/mytable_copy" ]; then
         cd column-level-security/dev/my_dataset/mytable/mytable_copy
         echo "run init"
         terraform init
