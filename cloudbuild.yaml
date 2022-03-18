@@ -33,48 +33,48 @@ steps:
           cd ../../
         done
       fi 
-# [START tf-plan]
-- id: 'tf plan'
-  name: 'hashicorp/terraform:1.0.0'
-  entrypoint: 'sh'
-  args: 
-  - '-c'
-  - | 
-      if [ -d "column-level-security/dev/my_dataset/mytable/$BRANCH_NAME/" ]; then
-        cd column-level-security/dev/my_dataset/mytable/$BRANCH_NAME
-        terraform plan
-      else
-        for dir in column-level-security/dev/my_dataset/*/
-        do 
-          cd ${dir}   
-          env=${dir%*/}
-          env=${env#*/}  
-          echo ""
-          echo "*************** TERRAFOM PLAN ******************"
-          echo "******* At environment: ${env} ********"
-          echo "*************************************************"
-          terraform plan || exit 1
-          cd ../../
-        done
-      fi 
-# [END tf-plan]
+# # [START tf-plan]
+# - id: 'tf plan'
+#   name: 'hashicorp/terraform:1.0.0'
+#   entrypoint: 'sh'
+#   args: 
+#   - '-c'
+#   - | 
+#       if [ -d "column-level-security/dev/my_dataset/mytable/$BRANCH_NAME/" ]; then
+#         cd column-level-security/dev/my_dataset/mytable/$BRANCH_NAME
+#         terraform plan
+#       else
+#         for dir in column-level-security/dev/my_dataset/*/
+#         do 
+#           cd ${dir}   
+#           env=${dir%*/}
+#           env=${env#*/}  
+#           echo ""
+#           echo "*************** TERRAFOM PLAN ******************"
+#           echo "******* At environment: ${env} ********"
+#           echo "*************************************************"
+#           terraform plan || exit 1
+#           cd ../../
+#         done
+#       fi 
+# # [END tf-plan]
 
-# [START tf-apply]
-- id: 'tf apply'
-  name: 'hashicorp/terraform:1.0.0'
-  entrypoint: 'sh'
-  args: 
-  - '-c'
-  - | 
-      if [ -d "column-level-security/dev/my_dataset/mytable/$BRANCH_NAME/" ]; then
-        cd column-level-security/dev/my_dataset/mytable/$BRANCH_NAME      
-        terraform apply -auto-approve
-      else
-        echo "***************************** SKIPPING APPLYING *******************************"
-        echo "Branch '$BRANCH_NAME' does not represent an oficial environment."
-        echo "*******************************************************************************"
-      fi
-# [END tf-apply]  
+# # [START tf-apply]
+# - id: 'tf apply'
+#   name: 'hashicorp/terraform:1.0.0'
+#   entrypoint: 'sh'
+#   args: 
+#   - '-c'
+#   - | 
+#       if [ -d "column-level-security/dev/my_dataset/mytable/$BRANCH_NAME/" ]; then
+#         cd column-level-security/dev/my_dataset/mytable/$BRANCH_NAME      
+#         terraform apply -auto-approve
+#       else
+#         echo "***************************** SKIPPING APPLYING *******************************"
+#         echo "Branch '$BRANCH_NAME' does not represent an oficial environment."
+#         echo "*******************************************************************************"
+#       fi
+# # [END tf-apply]  
         
 options:
   logging: CLOUD_LOGGING_ONLY
