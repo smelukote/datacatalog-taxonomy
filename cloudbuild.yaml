@@ -17,12 +17,22 @@ steps:
   - |
       if [ -d "column-level-security/dev/my_dataset/mytable/$BRANCH_NAME/" ]; then
         cd column-level-security/dev/my_dataset/mytable/$BRANCH_NAME
+        echo "run init"
         terraform init
+        echo "run validate"
+        terraform validate
+        echo "run plan"
+        terraform plan -out terraform.plan
+        terraform apply -auto-approve terraform.plan
       elif [ -d "column-level-security/dev/my_dataset/mytable_copy/$BRANCH_NAME/" ]; then
-          cd ${dir}   
-          #env=${dir%*/}
-          env=column-level-security/dev/my_dataset
-          #env=${env#*/}
+        cd column-level-security/dev/my_dataset/mytable_copy/$BRANCH_NAME
+        echo "run init"
+        terraform init
+        echo "run validate"
+        terraform validate
+        echo "run plan"
+        terraform plan -out terraform.plan
+        terraform apply -auto-approve terraform.plan
           echo ""
           echo "*************** TERRAFORM INIT ******************"
           echo "******* At environment: ${env} ********"
